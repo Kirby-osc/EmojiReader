@@ -15,6 +15,7 @@
 		EF291270255701EE006445B0 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29126F255701EE006445B0 /* EmojiTableViewController.swift */; };
 		EFA94DA22557FFAC00AB1927 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */; };
 		EFA94DA9255808CC00AB1927 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA94DA8255808CC00AB1927 /* EmojiModel.swift */; };
+		EFA94DB02558A06F00AB1927 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EFA94DAF2558A06F00AB1927 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EF29126F255701EE006445B0 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 		EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
 		EFA94DA8255808CC00AB1927 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
+		EFA94DAF2558A06F00AB1927 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				EF29125D255700C9006445B0 /* Main.storyboard */,
 				EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */,
 				EF29126F255701EE006445B0 /* EmojiTableViewController.swift */,
+				EFA94DAF2558A06F00AB1927 /* .gitignore */,
 				EFA94DA8255808CC00AB1927 /* EmojiModel.swift */,
 				EF291260255700CC006445B0 /* Assets.xcassets */,
 				EF291262255700CC006445B0 /* LaunchScreen.storyboard */,
@@ -130,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA94DB02558A06F00AB1927 /* .gitignore in Resources */,
 				EF291264255700CC006445B0 /* LaunchScreen.storyboard in Resources */,
 				EF291261255700CC006445B0 /* Assets.xcassets in Resources */,
 				EF29125F255700C9006445B0 /* Main.storyboard in Resources */,
