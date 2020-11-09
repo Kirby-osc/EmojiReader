@@ -45,6 +45,23 @@ class EmojiTableViewController: UITableViewController {
         cell.set(object: emojiArr[indexPath.row])
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favAction = moveToFavoriteAction(indexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [favAction])
+    }
+    func moveToFavoriteAction(indexPath:IndexPath)->UIContextualAction{
+        let action = UIContextualAction(style: .destructive, title: "Favorite") { (action, view, completion) in
+            self.emojiArr[indexPath.row].isFavorite = !self.emojiArr[indexPath.row].isFavorite
+            completion(true)
+        }
+        action.backgroundColor = self.emojiArr[indexPath.row].isFavorite
+            ? UIColor.systemGreen : UIColor.systemGray
+        return action
+    }
+    
+    
+    //Реализация удаления записей
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -55,6 +72,9 @@ class EmojiTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    
+    //Реализация функции перемещения записей
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
