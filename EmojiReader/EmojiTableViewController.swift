@@ -53,10 +53,15 @@ class EmojiTableViewController: UITableViewController {
     func moveToFavoriteAction(indexPath:IndexPath)->UIContextualAction{
         let action = UIContextualAction(style: .destructive, title: "Favorite") { (action, view, completion) in
             self.emojiArr[indexPath.row].isFavorite = !self.emojiArr[indexPath.row].isFavorite
+            let deletedRow = self.emojiArr.remove(at: indexPath.row)
+            self.emojiArr.insert(deletedRow, at: deletedRow.isFavorite ? 0 : self.emojiArr.count)
+            self.tableView.reloadData()
+            
             completion(true)
         }
         action.backgroundColor = self.emojiArr[indexPath.row].isFavorite
             ? UIColor.systemGreen : UIColor.systemGray
+        
         return action
     }
     
