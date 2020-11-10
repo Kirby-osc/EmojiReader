@@ -9,6 +9,8 @@ import UIKit
 
 class AddTableViewController: UITableViewController {
 
+    var emoji = Emoji(emoji: "", name: "", description: "", isFavorite: false)
+    
     @IBOutlet weak var emojiTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var descriptionTF: UITextField!
@@ -24,6 +26,17 @@ class AddTableViewController: UITableViewController {
     @IBAction func AddAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "unwindSegue", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "unwindSegue" else {
+            return
+        }
+        
+        emoji.emoji = emojiTF.text ?? ""
+        emoji.name = nameTF.text ?? ""
+        emoji.description = descriptionTF.text ?? ""
+    }
+    
     private func checkForTFsNotEmpty(){
         let emoji = emojiTF.text ?? ""
         let name = nameTF.text ?? ""
