@@ -26,7 +26,17 @@ class EmojiTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-    
+   @IBAction func unwindSegueToMainScreen(unwindSegue: UIStoryboardSegue){
+    guard unwindSegue.identifier == "unwindSegue" else {
+        return
+    }
+    guard let svc = unwindSegue.source as? AddTableViewController else {
+        return
+    }
+    let emoji = svc.emoji
+    emojiArr.append(emoji)
+    tableView.reloadData()
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,6 +60,7 @@ class EmojiTableViewController: UITableViewController {
         let favAction = moveToFavoriteAction(indexPath: indexPath)
         return UISwipeActionsConfiguration(actions: [favAction])
     }
+    
     func moveToFavoriteAction(indexPath:IndexPath)->UIContextualAction{
         
         let action = UIContextualAction(style: .destructive, title: "Favorite") { (action, view, completion) in
