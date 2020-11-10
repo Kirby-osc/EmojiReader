@@ -33,10 +33,8 @@ class EmojiTableViewController: UITableViewController {
     guard let svc = unwindSegue.source as? AddTableViewController else {
         return
     }
-    let name = svc.emoji.name
-    let emoji = svc.emoji.emoji
-    let description = svc.emoji.description
-    emojiArr.append(Emoji(emoji: emoji, name: name, description: description, isFavorite: false))
+    let emoji = svc.emoji
+    emojiArr.append(emoji)
     tableView.reloadData()
     }
     // MARK: - Table view data source
