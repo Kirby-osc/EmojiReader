@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 class EmojiTableViewCell: UITableViewCell {
     @IBOutlet weak var emojiLabel: UILabel!
     @IBOutlet weak var name: UILabel!
@@ -19,10 +19,10 @@ class EmojiTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func set(object: Emoji){
+    func set(object: EmojiData){
         self.emojiLabel.text = object.emoji
         self.name.text = object.name
-        self.discription.text = object.description
+        self.discription.text = object.emojidescription
     }
 
 }

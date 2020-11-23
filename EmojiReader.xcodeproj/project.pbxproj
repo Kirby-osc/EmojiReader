@@ -13,8 +13,11 @@
 		EF291261255700CC006445B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF291260255700CC006445B0 /* Assets.xcassets */; };
 		EF291264255700CC006445B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF291262255700CC006445B0 /* LaunchScreen.storyboard */; };
 		EF291270255701EE006445B0 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29126F255701EE006445B0 /* EmojiTableViewController.swift */; };
+		EF66DB7F2569280D0098A2C9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66DB7E2569280D0098A2C9 /* CoreDataStack.swift */; };
+		EF66DB8325692A7A0098A2C9 /* EmojiReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF66DB8125692A7A0098A2C9 /* EmojiReader.xcdatamodeld */; };
+		EF7DEDF9256BD4A800AC25C9 /* EmojiData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DEDF7256BD4A800AC25C9 /* EmojiData+CoreDataClass.swift */; };
+		EF7DEDFA256BD4A800AC25C9 /* EmojiData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DEDF8256BD4A800AC25C9 /* EmojiData+CoreDataProperties.swift */; };
 		EFA94DA22557FFAC00AB1927 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */; };
-		EFA94DA9255808CC00AB1927 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA94DA8255808CC00AB1927 /* EmojiModel.swift */; };
 		EFA94DB02558A06F00AB1927 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EFA94DAF2558A06F00AB1927 /* .gitignore */; };
 		EFC81B942559C95E002C6BFD /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC81B932559C95E002C6BFD /* AddTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,8 +31,11 @@
 		EF291263255700CC006445B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF291265255700CC006445B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF29126F255701EE006445B0 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
+		EF66DB7E2569280D0098A2C9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EF66DB8225692A7A0098A2C9 /* emojiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = emojiModel.xcdatamodel; sourceTree = "<group>"; };
+		EF7DEDF7256BD4A800AC25C9 /* EmojiData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmojiData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EF7DEDF8256BD4A800AC25C9 /* EmojiData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmojiData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
-		EFA94DA8255808CC00AB1927 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
 		EFA94DAF2558A06F00AB1927 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EFC81B932559C95E002C6BFD /* AddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,19 +70,30 @@
 		EF291256255700C9006445B0 /* EmojiReader */ = {
 			isa = PBXGroup;
 			children = (
+				EF7DEDFC256BD4B200AC25C9 /* Model */,
 				EF291257255700C9006445B0 /* AppDelegate.swift */,
 				EF291259255700C9006445B0 /* SceneDelegate.swift */,
 				EF29125D255700C9006445B0 /* Main.storyboard */,
 				EFC81B932559C95E002C6BFD /* AddTableViewController.swift */,
+				EF66DB7E2569280D0098A2C9 /* CoreDataStack.swift */,
 				EFA94DA12557FFAC00AB1927 /* EmojiTableViewCell.swift */,
 				EF29126F255701EE006445B0 /* EmojiTableViewController.swift */,
+				EF66DB8125692A7A0098A2C9 /* EmojiReader.xcdatamodeld */,
 				EFA94DAF2558A06F00AB1927 /* .gitignore */,
-				EFA94DA8255808CC00AB1927 /* EmojiModel.swift */,
 				EF291260255700CC006445B0 /* Assets.xcassets */,
 				EF291262255700CC006445B0 /* LaunchScreen.storyboard */,
 				EF291265255700CC006445B0 /* Info.plist */,
 			);
 			path = EmojiReader;
+			sourceTree = "<group>";
+		};
+		EF7DEDFC256BD4B200AC25C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF7DEDF7256BD4A800AC25C9 /* EmojiData+CoreDataClass.swift */,
+				EF7DEDF8256BD4A800AC25C9 /* EmojiData+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF66DB7F2569280D0098A2C9 /* CoreDataStack.swift in Sources */,
 				EF291258255700C9006445B0 /* AppDelegate.swift in Sources */,
+				EF7DEDF9256BD4A800AC25C9 /* EmojiData+CoreDataClass.swift in Sources */,
 				EF291270255701EE006445B0 /* EmojiTableViewController.swift in Sources */,
 				EFA94DA22557FFAC00AB1927 /* EmojiTableViewCell.swift in Sources */,
-				EFA94DA9255808CC00AB1927 /* EmojiModel.swift in Sources */,
+				EF7DEDFA256BD4A800AC25C9 /* EmojiData+CoreDataProperties.swift in Sources */,
+				EF66DB8325692A7A0098A2C9 /* EmojiReader.xcdatamodeld in Sources */,
 				EF29125A255700C9006445B0 /* SceneDelegate.swift in Sources */,
 				EFC81B942559C95E002C6BFD /* AddTableViewController.swift in Sources */,
 			);
@@ -357,6 +377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF66DB8125692A7A0098A2C9 /* EmojiReader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF66DB8225692A7A0098A2C9 /* emojiModel.xcdatamodel */,
+			);
+			currentVersion = EF66DB8225692A7A0098A2C9 /* emojiModel.xcdatamodel */;
+			path = EmojiReader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF29124C255700C9006445B0 /* Project object */;
 }

@@ -9,7 +9,9 @@ import UIKit
 
 class AddTableViewController: UITableViewController {
 
-    var emoji = Emoji(emoji: "", name: "", description: "", isFavorite: false)
+    
+    
+    var emoji = (emoji: "", name: "", description: "")
     
     @IBOutlet weak var emojiTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
@@ -44,8 +46,15 @@ class AddTableViewController: UITableViewController {
         
         addButton.isEnabled = !emoji.isEmpty && !name.isEmpty && !description.isEmpty
     }
+    
+    private func updateTFs(){
+        emojiTF.text = emoji.emoji
+        nameTF.text = emoji.name
+        descriptionTF.text = emoji.description
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTFs()
         checkForTFsNotEmpty()
     }
 
