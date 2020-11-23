@@ -17,7 +17,9 @@ class EmojiTableViewController: UITableViewController {
         // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         let fetchRequest: NSFetchRequest<EmojiData> = EmojiData.fetchRequest()
-        
+        //fetchRequest.predicate = NSPredicate(format: "isFavorite")
+        let sort = NSSortDescriptor(key: "isFavorite", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         do {
             emojis = try context.fetch(fetchRequest)
             
@@ -103,36 +105,35 @@ class EmojiTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let favAction = moveToFavoriteAction(indexPath: indexPath)
-//        return UISwipeActionsConfiguration(actions: [favAction])
-//    }
-//
-//    func moveToFavoriteAction(indexPath:IndexPath)->UIContextualAction{
-//
-//        let action = UIContextualAction(style: .destructive, title: "Favorite") { (action, view, completion) in
-//            let isFav = self.emojis[indexPath.row].isFavorite?.boolValue
-//            self.emojis[indexPath.row].isFavorite = NSNumber(value: !isFav!)
-//            let deletedRow = self.emojis.remove(at: indexPath.row)
-//            self.emojis.insert(deletedRow, at: deletedRow.isFavorite!.boolValue ? 0 : self.emojis.count)
-//
-//            do{
-//                try self.context.save()
-//            }catch{
-//                print(error.localizedDescription)
-//            }
-//
-//
-//            self.tableView.reloadData()
-//
-//            completion(true)
-//
-//        }
-//        action.backgroundColor = self.emojis[indexPath.row].isFavorite!.boolValue
-//            ? UIColor.systemGreen : UIColor.systemGray
-//
-//        return action
-//    }
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favAction = moveToFavoriteAction(indexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [favAction])
+    }
+
+    func moveToFavoriteAction(indexPath:IndexPath)->UIContextualAction{
+
+        let action = UIContextualAction(style: .destructive, title: "Favorite") { (action, view, completion) in
+            let isFav = self.emojis[indexPath.row].isFavorite
+            self.emojis[indexPath.row].isFavorite = !isFav
+            
+            do{
+                try self.context.save()
+            }catch{
+                print(error.localizedDescription)
+            }
+
+
+            self.fetchEmoji()
+
+            completion(true)
+
+        }
+        
+        action.backgroundColor = self.emojis[indexPath.row].isFavorite
+            ? UIColor.systemGreen : UIColor.systemGray
+
+        return action
+    }
     
     
     //Реализация удаления записей
@@ -155,20 +156,20 @@ class EmojiTableViewController: UITableViewController {
     }
     
     
-        //Реализация функции перемещения записей
+//        //Реализация функции перемещения записей
 //        override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
 //            return true
 //        }
-//    
+//
 //        override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
 //            let removedEmoji = emojis.remove(at: sourceIndexPath.row)
 //            emojis.insert(removedEmoji, at: destinationIndexPath.row)
-//            
+//
 //            do {
 //                try context.save()
 //            } catch  {
 //                print(error.localizedDescription)
 //            }
-//            
+//
 //        }
 }
