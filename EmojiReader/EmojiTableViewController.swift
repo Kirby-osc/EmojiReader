@@ -41,16 +41,19 @@ class EmojiTableViewController: UITableViewController {
         fetchEmoji()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard segue.identifier == "EditEmojiSegue" else {
-//            return
-//        }
-//
-//        let destinationNC = segue.destination as! UINavigationController
-//        let destinationTVC = destinationNC.topViewController as! AddTableViewController
-//        destinationTVC.title = "Edit"
-//        destinationTVC.emoji = emojis[tableView.indexPathForSelectedRow!.row]
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "EditEmojiSegue" else {
+            return
+        }
+
+        let destinationNC = segue.destination as! UINavigationController
+        let destinationTVC = destinationNC.topViewController as! AddTableViewController
+        destinationTVC.title = "Edit"
+        destinationTVC.emoji.emoji = emojis[tableView.indexPathForSelectedRow!.row].emoji!
+        destinationTVC.emoji.name = emojis[tableView.indexPathForSelectedRow!.row].name!
+        destinationTVC.emoji.description = emojis[tableView.indexPathForSelectedRow!.row].emojidescription!
+    }
+    
     @IBAction func unwindSegueToMainScreen(unwindSegue: UIStoryboardSegue){
         guard unwindSegue.identifier == "unwindSegue" else {
             return
